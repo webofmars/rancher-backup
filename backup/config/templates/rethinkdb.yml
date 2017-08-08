@@ -1,1 +1,5 @@
-rethinkdb:
+image: "rethinkdb:latest"
+commands:
+  - "-c 'rm -rf {{ target_dir }}/*.tar.gz'"
+  - "-c 'rethinkdb-dump -c {{ ip }}:39500 -f {{ target_dir }}/rethinkdb_dump.tar.gz'"
+entrypoint: "/bin/sh"
